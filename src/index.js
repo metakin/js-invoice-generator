@@ -38,8 +38,8 @@ export default class {
 	 * @param {price} item.price Product price
 	 */
 	addItem({ name, qty, price }) {
-		if (typeof qty !== 'number') throw new Error('QTY number olmalı.');
-		if (typeof price !== 'number') throw new Error('Price number olmalı.');
+		if (typeof qty !== 'number') throw new Error('QTY must be a number.');
+		if (typeof price !== 'number') throw new Error('Price must be a number.');
 		this.items.push(new Item(name, qty, price));
 	}
 	/**
@@ -48,7 +48,7 @@ export default class {
 	 * @param {number} percent Percentage of tax
 	 */
 	addTax(name, percent) {
-		if (typeof percent !== 'number') throw new Error('Percent number olmalı.');
+		if (typeof percent !== 'number') throw new Error('Percent must be a number.');
 		this.taxes.push(new Tax(name, percent));
 	}
 	/**
@@ -57,7 +57,7 @@ export default class {
 	 * @param {number} percent Price of charge
 	 */
 	addCharge(name, price) {
-		if (typeof price !== 'number') throw new Error('Price number olmalı.');
+		if (typeof price !== 'number') throw new Error('Price must be a number.');
 		this.charges.push(new Charge(name, price));
 	}
 
