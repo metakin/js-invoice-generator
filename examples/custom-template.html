@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+		<title>Document</title>
+		<style>
+			* {
+				font-size: 12px;
+				font-family: 'Times New Roman';
+			}
+
+			td,
+			th,
+			tr,
+			table {
+				border-top: 1px solid black;
+				border-collapse: collapse;
+			}
+
+			
+
+			td.quantity,
+			th.quantity {
+				width: 40px;
+				max-width: 40px;
+				word-break: break-all;
+			}
+
+			td.price,
+			th.price {
+				width: 40px;
+				max-width: 40px;
+				word-break: break-all;
+			}
+
+			.centered {
+				text-align: center;
+				align-content: center;
+			}
+
+			.ticket {
+				width: 155px;
+				max-width: 155px;
+			}
+
+			img {
+				max-width: inherit;
+				width: inherit;
+			}
+
+			@media print {
+				.hidden-print,
+				.hidden-print * {
+					display: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ticket">
+			<img src="{{logo}}" alt="" />
+			<p class="centered">
+				<strong>{{shop_name}}</strong>
+				<br />
+				{{#shop_address}}{{shop_address}}{{/shop_address}}
+				<br />{{#phone_number}}{{phone_number}}{{/phone_number}}{{#email_address}} -
+				{{email_address}}{{/email_address}}
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th class="quantity">Product</th>
+						<th class="quantity">Q.</th>
+						<th class="price">Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#items}}
+					<tr>
+						<td class="quantity">{{name}}</td>
+						<td class="description">{{qty}}</td>
+						<td class="price">{{currency}} {{price}}</td>
+					</tr>
+					{{/items}} 
+                    {{#taxes}}
+					<tr>
+						<td></td>
+						<td class="Rate"><h2>{{name}}</h2></td>
+						<td class="payment"><h2>{{currency}}{{price}}</h2></td>
+					</tr>
+					{{/taxes}} 
+                    {{#charges}}
+					<tr>
+						<td></td>
+						<td class="Rate"><h2>{{name}}</h2></td>
+						<td class="payment"><h2>{{currency}}{{price}}</h2></td>
+					</tr>
+					{{/charges}}
+
+					<tr>
+						<td></td>
+						<td class="Rate"><h2>Total</h2></td>
+						<td class="payment"><h2>{{currency}}{{total}}</h2></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="centered">{{footer_message}}</p>
+			<p class="centered">{{{qr}}}</p>
+			<p class="centered">{{{barcode}}}</p>
+		</div>
+	</body>
+</html>

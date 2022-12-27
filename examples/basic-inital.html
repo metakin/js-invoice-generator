@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="invoice">
+
+    </div>
+    <script src="../dist/invoice.js"></script>
+    <script>
+        var invoice = new motion('#invoice', {
+            shop_name: 'Test Restaurant',
+            logo: 'https://i.imgur.com/TqonQrC.png',
+            email_address: 'store@example.com',
+            phone_number: '222 222 222',
+            footer_message: 'Have a nice day!',
+            items: [
+                { name: 'Pizza', qty: 1, price: 18 },
+                { name: 'Cola', qty: 2, price: 4 }
+            ],
+            custom_fields: {
+                extra_message: 'Extra Message'
+            },
+            taxes: [
+                { name: 'Tax A', percent: 8 },
+                { name: 'Tax B', percent: 2 }
+            ],
+            charges: [
+                { name: 'Delivery Fee', price: 8 }
+            ],
+            barcode: 100000000009,
+            qr: 'My Invoice'
+        });
+    
+        invoice.prepare();
+    </script>
+</body>
+</html>
