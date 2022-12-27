@@ -91,6 +91,15 @@ invoice.prepare();
 | ChargeName | 'Charge A'      |
 | ChargeFee | 18              |
 
+#### `.toHTML(callback: Function)`
+
+This method is used to generate the HTML template of the invoice. It takes a callback function as a parameter and returns the HTML template as a string.
+
+```javascript
+invoice.toHTML(function(html) {
+    console.log(html);
+});
+```
 
 # Custom Remote Template
 
